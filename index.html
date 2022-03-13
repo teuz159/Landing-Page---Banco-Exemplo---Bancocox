@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bancocox - Seu banco, sua casa.</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			font-family: Montserrat;
+		}
+		.fundo{
+			height: 100vh;
+			background: white;
+		}
+		.cabecalho{
+			position: relative;
+			background: black;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px;
+		}
+		.logo{
+			width: 100px;
+			padding-right: 15px;
+		}
+		.inicial{
+			display: flex;
+			align-items: center;
+		}
+		ul{
+			list-style: none;
+			display: flex;
+			align-items: center;
+			margin-bottom: 5px;
+		}
+		li{
+			padding-right: 20px;
+		}
+		a{
+			text-decoration: none;
+		}
+		a:hover{
+			color: black;
+		}
+		.login{
+			display: flex;
+			align-items: center;
+			border-radius: 5px;
+			border-style: solid;
+			border-width: 1px;
+			padding: 5px;
+			border-color: #7ED957;
+			transition:  0.5s;
+		}
+		.login:hover{
+			padding: 10px;
+			background-color: black;
+		}
+		p{
+			font-size: 20px;
+			color: #7ED957;
+		}
+		.nubank{
+			position: absolute;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 50%;
+
+		}
+		.title{
+			position: absolute;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 15%;
+			background: rgba(127,217,88,0.5);
+			padding: 10px;
+			border-radius: 5px;
+			height: 150px;
+		}
+		.seta{
+			display: flex;
+			align-items: center;
+			margin-top: 10px;
+			color: black;			
+			transition: 0.5s;
+		}
+		.seta:hover{
+			font-size: 20px;
+		}
+		.subtitle{
+			color: black;
+			font-weight: bold;
+			font-size: 30px;
+		}
+		.loginCaixa{
+			display: flex;
+			align-items: center;
+		}
+		.cpf{
+			position: absolute;
+			transform: translateY(-50%);
+			left: 75%;
+			top: 50%;
+			padding: 15px;
+			border-radius: 5px;
+			font-size: 15px;
+			color: black;
+			width: 300px;
+			text-align: center;
+		}
+		.valor{
+			border-radius: 5px;
+			border-style: solid;
+			border-width: 1px;
+  			width: 278px;
+  			height: 30px;
+  			border-color: black;
+  		}
+		.inserirCPF{
+			margin-top: 15px;
+			text-align: left;
+		}
+		input{
+			padding: 10px;
+			font-size: 20px;
+			background: transparent;
+			color: white;
+		}
+		.titleCPF{
+			text-align: left;
+		}
+		#pegarValor{
+			border-radius: 5px;
+			border-style: solid;
+			border-color: black;
+			border-width: 1px;
+			display: flex;
+			background: black;
+			margin-top: 15px;
+			padding: 10px;
+			justify-content: space-between;
+			width: 300px;
+			cursor: pointer;
+		}
+		#resultado{
+			color: #7ED957;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.circle{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #7FD958;
+			clip-path: circle(600px at right);
+		}
+		.menuPrincipal{
+			color: white;
+		}
+		.menuPrincipal:hover{
+			color: #7ED957;
+		}
+	</style>
+</head>
+<body>
+	<section class='fundo'>
+		<div class="circle"></div>
+		<div class="cabecalho">
+		<div class="inicial">
+			<a href="https://nubank.com.br/"><img src="logo.png" class="logo"></a>
+			<ul>
+				<li><a href="" class="menuPrincipal">Página Inicial</a></li>
+				<li><a href="" class="menuPrincipal">Para você</a></li>
+				<li><a href="" class="menuPrincipal">Para seu negócio</a></li>
+				<li><a href="" class="menuPrincipal">Mais do Bancocox</a></li>
+				<li><a href="" class="menuPrincipal">Perguntas</a></li>
+			</ul>
+		</div>
+		<div class="login">
+		<a href="" class="loginCaixa">
+			<p>Login</p>
+			<img src="login.png" style="width: 50px;">
+		</a>
+		</div>
+		</div>
+		<div class="nubank">
+			<img src="imagemprincipal.png" style="width:500px;">
+		</div>
+		<div class="title">
+			<h2 class="subtitle">Um novo jeito<br>de fazer transferências e<br>pagamentos.</h2>
+			<a href="" class="seta">Saiba como funciona<img src="seta.png" style="width: 50px; margin-left: 10px;"></a>
+		</div>
+		<div class="cpf">
+			<h2 class="titleCPF">Peça sua conta e cartão<br>de crédito do Bancocox</h2>
+			<div class="inserirCPF">
+				<label for="valorCPF" style="color: black;">Digite seu cpf</label><br>
+				<input type="text" class="valor" id="valorCPF">
+			</div>
+			<button id="pegarValor" onclick="analisar()"><p>Continuar</p><img src="seta.png" style="width: 50px;"></button>	
+		<div>
+			<img src="" id="img" style="width: 50px; padding-top: 10px;">
+			<p id="resultado" style="color: black;"></p>
+		</div>
+		</div>
+	</section>
+	<script>
+		
+		function analisar() {
+			var a = parseFloat(document.getElementById('valorCPF').value);
+			if (a >= 10000000000 && a<= 99999999999) {
+				document.getElementById('resultado').innerHTML = 'Cadastro realizado com sucesso'
+				document.getElementById('img').src = 'aprovado.png'
+				document.getElementById('pegarValor').style.display = 'none';	
+			} else {
+				document.getElementById('resultado').innerHTML = 'Digite um número de 9 dígitos'
+				document.getElementById('img').src = 'reprovado.png'	
+			}
+			
+		}
+	</script>
+</body>
+</html>
